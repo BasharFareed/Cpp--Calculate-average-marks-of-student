@@ -1,43 +1,29 @@
-#include <iostream>
+
+#include<iostream>
+#include <iomanip>
 using namespace std;
-int calculateLowest(int arr[], int size) {
-    int lowest = arr[0];
+ float calculateAverage(int marks[] ,int N)
+{
 
-    for(int i = 1; i < size; i++) {
-        if(arr[i] < lowest) {
-            lowest = arr[i];
-        }
-    }
-
-    return lowest;
+    int sum=0;
+	for(int i=0; i<N; i++)	{
+		sum=sum+marks[i];
+	}
+	
+return float(sum/N);
 }
-
-int calculateHighest(int arr[], int size) {
-    int highest = arr[0];
-
-    for(int i = 1; i < size; i++) {
-        if(arr[i] > highest) {
-            highest = arr[i];
-        }
-    }
-
-    return highest;
-}
-
-int main() {
-    int N;
-    cin >> N;
-
-    int marks[100];
-    for(int i = 0; i < N; i++) {
-        cin >> marks[i];
-    }
-
-    int low = calculateLowest(marks, N);
-    int high = calculateHighest(marks, N);
-
-    cout << "Lowest score: " << low << endl;
-    cout << "Highest score: " << high;
-
-    return 0;
+int main()
+{
+	int N;
+	cout<<"enter the number of students"<<endl;
+	cin>>N;
+	int marks[100];
+	cout<<"enter marks of students"<<endl;
+	for(int i=0; i<N; i++)
+	{
+		cin>>marks[i];
+	}
+	float avg=calculateAverage(marks , N);
+    cout << fixed <<setprecision(2);
+	cout<< "average =" << avg <<endl;
 }
